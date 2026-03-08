@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+     width="600pt" height="600pt" viewBox="0 0 600 600"
+     preserveAspectRatio="xMidYMid meet">
+    
+    <!-- Original S shape with increased thickness -->
+    <!-- Transform matches the original file: translate(0,600) scale(0.1,-0.1) -->
+    <!-- Added stroke to make it thicker -->
+    <g transform="translate(0,600) scale(0.1,-0.1)"
+       fill="currentColor" stroke="currentColor" stroke-width="250" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M3714 4759 c-195 -26 -354 -218 -400 -483 -11 -60 -14 -118 -10 -168
+        l5 -77 -36 -7 c-55 -10 -338 4 -423 21 -224 45 -412 146 -560 302 -81 84 -124
+        144 -184 253 -26 47 -56 93 -67 103 -55 46 -159 -8 -145 -76 18 -89 156 -297
+        281 -422 181 -181 395 -291 669 -342 67 -13 146 -18 296 -18 l205 0 41 -125
+        c23 -69 95 -246 161 -395 221 -497 261 -642 250 -913 -5 -155 -31 -262 -94
+        -389 -189 -385 -636 -585 -1080 -482 -288 66 -500 263 -570 529 -23 89 -23
+        271 1 365 56 217 209 420 384 509 98 50 184 69 296 64 91 -3 109 -7 168 -36
+        151 -74 238 -228 238 -422 0 -56 3 -70 23 -87 48 -45 114 -36 142 18 20 37 19
+        167 0 244 -56 221 -203 380 -410 445 -90 28 -248 31 -350 5 -273 -67 -508
+        -278 -622 -555 -51 -124 -68 -218 -67 -370 1 -201 44 -347 149 -506 289 -434
+        949 -543 1460 -241 108 63 269 217 339 324 174 266 223 620 135 973 -41 165
+        -78 261 -224 590 -104 233 -195 461 -195 489 0 4 19 13 43 20 133 40 304 162
+        381 273 87 128 117 321 67 435 -52 117 -158 171 -297 152z m91 -185 c51 -20
+        65 -159 25 -252 -33 -76 -127 -160 -242 -216 -102 -50 -108 -49 -108 20 0 58
+        27 205 47 256 48 122 129 198 214 198 26 0 55 -3 64 -6z"/>
+    </g>
+
+    <!-- Circular dot at the bottom right -->
+    <!-- Positioned relative to the 600x600 viewBox -->
+    <!-- Bottom right is (600, 600). Placing it slightly inwards. -->
+    <circle cx="520" cy="520" r="25" fill="currentColor" />
+</svg>

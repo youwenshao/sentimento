@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Minus, Sun, Moon, Settings, Play, Pause, X } from 'lucide-react';
+import { gsap } from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import AbstractBackground from './src/components/AbstractBackground';
+
+gsap.registerPlugin(ScrollToPlugin);
 
 // --- SentimentoPage.jsx ---
 // This is the main layout component, designed with an ultra-minimalist philosophy.
@@ -172,15 +176,18 @@ export default function SentimentoPage() {
 }
 
 function Header() {
+  const scrollToProjects = (e) => {
+    e.preventDefault();
+    gsap.to(window, { duration: 1.2, scrollTo: { y: "#work", offsetY: 50 }, ease: "power3.inOut" });
+  };
+
   return (
     <header className="flex justify-between items-start mb-32 md:mb-48">
       <div>
-        <h1 className="text-sm font-medium tracking-widest uppercase opacity-80 text-primary">Sentimento</h1>
-        <p className="text-xs text-tertiary mt-1">EST. 2026</p>
+        <SentimentoLogo className="w-12 h-12 text-primary opacity-90" />
       </div>
       <nav className="flex gap-8 text-sm font-light tracking-wide opacity-80 text-primary">
-        <a href="#work" className="hover:opacity-100 transition-opacity">Work</a>
-        <a href="#about" className="hover:opacity-100 transition-opacity">About</a>
+        <a href="#work" onClick={scrollToProjects} className="hover:opacity-100 transition-opacity">Projects</a>
         <a href="mailto:team@sentimento.dev" className="hover:opacity-100 transition-opacity">Contact</a>
       </nav>
     </header>
@@ -212,7 +219,7 @@ function ProjectList() {
   return (
     <section id="work" className="mb-40">
       <div className="flex items-end justify-between mb-8 pb-4 thin-border">
-        <span className="text-xs uppercase tracking-widest text-tertiary">Selected Works</span>
+        <span className="text-xs uppercase tracking-widest text-tertiary">Made by Sentimento, with love from Hong Kong</span>
         <span className="text-xs uppercase tracking-widest text-tertiary">01 — 06</span>
       </div>
       
@@ -316,5 +323,31 @@ function Footer({ animationsEnabled, setAnimationsEnabled, theme, toggleTheme, s
         </p>
       </div>
     </footer>
+  );
+}
+
+function SentimentoLogo(props) {
+  return (
+    <svg viewBox="0 0 600 600" {...props}>
+      <g transform="translate(0,600) scale(0.1,-0.1)"
+         fill="currentColor" stroke="currentColor" strokeWidth="250" strokeLinejoin="round" strokeLinecap="round">
+        <path d="M3714 4759 c-195 -26 -354 -218 -400 -483 -11 -60 -14 -118 -10 -168
+        l5 -77 -36 -7 c-55 -10 -338 4 -423 21 -224 45 -412 146 -560 302 -81 84 -124
+        144 -184 253 -26 47 -56 93 -67 103 -55 46 -159 -8 -145 -76 18 -89 156 -297
+        281 -422 181 -181 395 -291 669 -342 67 -13 146 -18 296 -18 l205 0 41 -125
+        c23 -69 95 -246 161 -395 221 -497 261 -642 250 -913 -5 -155 -31 -262 -94
+        -389 -189 -385 -636 -585 -1080 -482 -288 66 -500 263 -570 529 -23 89 -23
+        271 1 365 56 217 209 420 384 509 98 50 184 69 296 64 91 -3 109 -7 168 -36
+        151 -74 238 -228 238 -422 0 -56 3 -70 23 -87 48 -45 114 -36 142 18 20 37 19
+        167 0 244 -56 221 -203 380 -410 445 -90 28 -248 31 -350 5 -273 -67 -508
+        -278 -622 -555 -51 -124 -68 -218 -67 -370 1 -201 44 -347 149 -506 289 -434
+        949 -543 1460 -241 108 63 269 217 339 324 174 266 223 620 135 973 -41 165
+        -78 261 -224 590 -104 233 -195 461 -195 489 0 4 19 13 43 20 133 40 304 162
+        381 273 87 128 117 321 67 435 -52 117 -158 171 -297 152z m91 -185 c51 -20
+        65 -159 25 -252 -33 -76 -127 -160 -242 -216 -102 -50 -108 -49 -108 20 0 58
+        27 205 47 256 48 122 129 198 214 198 26 0 55 -3 64 -6z"/>
+      </g>
+      <circle cx="520" cy="520" r="25" fill="currentColor" />
+    </svg>
   );
 }
