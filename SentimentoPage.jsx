@@ -3,6 +3,7 @@ import { Plus, Minus, Sun, Moon, Settings, Play, Pause, X } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import AbstractBackground from './src/components/AbstractBackground';
+import { useTheme } from './src/hooks/useTheme';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -56,32 +57,10 @@ const PROJECTS = [
 
 export default function SentimentoPage() {
   const [animationsEnabled, setAnimationsEnabled] = useState(true);
-  // Initialize theme from localStorage or default to light
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'light';
-    }
-    return 'light';
-  });
+  const { theme, toggleTheme } = useTheme();
   const [speed, setSpeed] = useState(0.5);
   const [complexity, setComplexity] = useState(0.5);
   const [showControls, setShowControls] = useState(false);
-
-  // Sync theme with DOM and localStorage
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  // Toggle theme handler
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
 
   return (
     <div className={`${theme === 'dark' ? 'dark' : ''} min-h-screen transition-colors duration-500`}>

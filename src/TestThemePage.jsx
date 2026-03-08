@@ -1,27 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useTheme } from './hooks/useTheme';
 
 export default function TestThemePage() {
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'light';
-    }
-    return 'light';
-  });
-
-  // Sync theme with DOM
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className="min-h-screen bg-primary text-primary p-8 transition-colors duration-300 font-sans">
